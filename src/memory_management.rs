@@ -2,8 +2,8 @@ use std::rc::Rc;
 
 pub fn run() {
     memory_management();
-    lifetimes();
-    pointers();
+    // lifetimes();
+    // pointers();
 }
 
 #[allow(unused_variables)]

@@ -30,6 +30,7 @@ fn main() {
     println!("Hello World in Rust");
 
     // language_basics::run();
+    memory_management::run();
     // fib::run();
-    exercises::money_with_enums::run();
+    // exercises::money_with_enums::run();
 }
