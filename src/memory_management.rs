@@ -193,7 +193,7 @@ fn lifetimes() {
     /*
        - lifetime does not change the lifetime of a reference, it describes the relationship between the lifetimes of multiple references guaranteeing security
        - Rust only allows 1 memory owner
-       - Rust allows for multiple references
+       - Rust allows for multiple references (many immutable or one mutable)
        - lifetimes ensure that each reference refers to a valid / existing memory.
           In other words, it guarantees that the memory will not be cleared until it needs to be used/accessed
     */
