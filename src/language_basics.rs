@@ -227,13 +227,13 @@ fn data_types() {
     - Instances od String type - potentially mutable text, allocated on the heap, deallocated at the end of the String object's lifetime
     */
 
-    let mut text_slice:&'static str = "Hello"; // string literal
+    let text_slice:&'static str = "Hello"; // string literal
 
     println!("{} {:p}, {}", text_slice, text_slice.as_ptr(), text_slice.len()); // string slice knows the address of the first byte, and the number of bytes
 
     let text = String::from("Hello"); // instance oth the String type (vector of bytes)
 
-    let mut text_slice: &str = &text; // implicit type coercion
+    let text_slice: &str = &text; // implicit type coercion
 
     let mut message = String::from("Example ");
     message.push_str(" of mutable text");

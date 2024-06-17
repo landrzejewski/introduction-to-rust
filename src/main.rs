@@ -20,8 +20,6 @@ cargo fmt                              # format source files in the project
 
 #![allow(dead_code)]
 
-use exercises::fibonacci as fib;
-
 // crate scope attribute (entire application)
 mod language_basics;
 mod memory_management;
@@ -31,6 +29,7 @@ mod exercises;
 fn main() {
     println!("Hello World in Rust");
 
-    language_basics::run();
-    //fib::run();
+    // language_basics::run();
+    // fib::run();
+    exercises::money_with_enums::run();
 }
