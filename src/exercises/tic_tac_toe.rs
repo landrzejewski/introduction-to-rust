@@ -93,7 +93,7 @@ pub fn run() {
 
     loop {
         board.display();
-        println!("Player {:?} enter move. Enter col(1-3) row(1-3)", current_player);
+        println!("Player {:?} enter move. Enter col(0-2) row(0-2)", current_player);
         let mut input = String::new();
         io::stdin()
             .read_line(&mut input)
@@ -107,8 +107,8 @@ pub fn run() {
             println!("Invalid coordinates");
             continue;
         }
-        let col = coordinates[0] - 1;
-        let row = coordinates[1] - 1;
+        let col = coordinates[0];
+        let row = coordinates[1];
 
         if !board.is_valid_move(col, row) {
             println!("Invalid move");
