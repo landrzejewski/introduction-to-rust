@@ -14,7 +14,7 @@ pub fn run() {
             .read_line(&mut provided_number)
             .expect("Read line failed");
 
-        let guess: i32 = match provided_number.trim().parse() {
+        let guess = match provided_number.trim().parse::<i32>() {
             Ok(value) => value,
             Err(_) => {
                 println!("Incorrect number");

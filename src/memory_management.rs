@@ -88,10 +88,8 @@ fn memory_management() {
       - memory on the heap can only be accessed by the current owner/holder
     */
 
-
     let string = String::from("text"); // always on the heap, dynamically allocated
     let str: &str = "Text"; // pointer to embedded memory, non-mutable
-
 
     let a = String::from("aaa");
     let b = &a;
@@ -102,22 +100,9 @@ fn memory_management() {
     let b = &mut a;
     b.push('b'); // b is not the owner, it is just a read only reference
     let c = &a; // read/access is not possible because there is still a chance of mutation (line below)
-                // b.push('c'); // error
+    // b.push('c'); // error
 
-    /*
-    Dereferencing
-    - can be done manually with *
-    - can be done automatically - using the operator . and macro
-    */
-
-    let mut x = Box::new(1);
-    let a = *x; // *x reads the value from the heap i.e. 1
-    *x += 1;
-
-    // copy creation can be implicit implementation requires copy trait
-    let test = Test { value: 4 };
-    mutate_test(test); // clone
-    println!("{:?}", test);
+    // see other examples below for more
 }
 
 fn show(text: String) {
@@ -185,7 +170,6 @@ fn restrictions_after_defining_immutable_reference() {
     // s.push_str(" dewey");  // Nope!
     println!("s: {}, r1: {}, r2: {}", s, r1, r2);
 }
-
 
 #[allow(unused_variables)]
 #[allow(unused_assignments)]
@@ -301,6 +285,7 @@ fn pointers() {
 
     // Note, Rust also supports non-owning "weak ref counts" which can be upgraded to "strong ref counts".
     // For details, see https://doc.rust-lang.org/std/rc/struct.Weak.html.
+
 }
 
 struct Employee {
