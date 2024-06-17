@@ -227,12 +227,13 @@ fn data_types() {
     - Instances od String type - potentially mutable text, allocated on the heap, deallocated at the end of the String object's lifetime
     */
 
-    let text_slice:&'static str = "Hello"; // string literal
+    let mut text_slice:&'static str = "Hello"; // string literal
+
     println!("{} {:p}, {}", text_slice, text_slice.as_ptr(), text_slice.len()); // string slice knows the address of the first byte, and the number of bytes
 
     let text = String::from("Hello"); // instance oth the String type (vector of bytes)
 
-    let text_slice: &str = &text; // implicit type coercion
+    let mut text_slice: &str = &text; // implicit type coercion
 
     let mut message = String::from("Example ");
     message.push_str(" of mutable text");
@@ -282,6 +283,7 @@ fn data_types() {
     println!("Two to five: {two_to_five:?}, Start at one: {start_at_one:?}, End at five: {end_at_five:?}, Everything: {everything:?}");
 }
 
+#[allow(unused_assignments)]
 fn control_flow() {
     /*
     If expression
@@ -431,29 +433,33 @@ fn structs() {
     let x = origin.0;
 
     let point = Point3d { x: 2, y: 2, z: 2 };
-    //let y = point.y;
+    let y = point.y;
 
     let Point3d { x, y, z } = point;
     println!("x, y, z: {x}, {y}. {z}");
     let Point3d { x: a, y: b, z: c } = point;
+    let Point3d { x: aa, .. } = point;
     println!("x, y, z: {a}, {b}. {c}");
 
     let active = true;
     let mut account = Account {
         email: String::from("john@training.pl"),
         password: String::from("123"),
-        active, // shortcut fo active: active
+        active, // shortcut for active: active
     };
 
     println!("{:#?}", account);
     account.active = false;
     println!("{:#?}", account);
 
+
     let other_account = Account {
         email: String::from("marek@training.pl"),
-        ..account //.clone()
+        ..account.clone()
     };
+
     println!("Other account: {:#?}", other_account);
+    println!("{:?}", account.email);
     // println!("{:?}", account.password); // error - after copying elements to other_account, we partially lost ownership (reference types)
     // println!("{:?}", account); // error - after copying elements to other_account, we partially lost ownership (reference types)
 
@@ -474,10 +480,7 @@ fn structs() {
     println!("Rectangle area: {}", rectangle.area()); // == Rectangle::area(&rectangle);
 
     let square = Rectangle::square(10);
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        square.area()
-    ); // == Rectangle::area(&rectangle);
+    println!("The area of the rectangle is {} square pixels.", square.area()); // == Rectangle::area(&rectangle);
 }
 
 // unit struct
@@ -570,14 +573,8 @@ fn enums() -> Result<(), String> {
     }
 
     match product_code {
-        Barcode::Product {
-            id: id_value @ 4..=10,
-            value: _,
-        } => println!("Id in big range {id_value}"), // bind values in range
-        Barcode::Product {
-            id: 1..=3,
-            value: _,
-        } => println!("Id in small range"),
+        Barcode::Product { id: id_value @ 4..=10, value: _, } => println!("Id in big range {id_value}"), // bind values in range
+        Barcode::Product { id: 1..=3, value: _, } => println!("Id in small range"),
         _ => {}
     }
 
@@ -603,6 +600,7 @@ fn enums() -> Result<(), String> {
     let Some(value) = safe_div(3.0, 3.0) else {
         return Err("error".to_string());
     };
+
     println!("3.0 / 3.0 = {}", value);
 
     let mut stack = vec![1, 2, 3];
