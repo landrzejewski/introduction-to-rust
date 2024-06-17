@@ -1,7 +1,7 @@
 use std::rc::Rc;
 
 pub fn run() {
-    memory_management();
+   memory_management();
     // lifetimes();
     // pointers();
 }
@@ -88,17 +88,15 @@ fn memory_management() {
       - memory on the heap can only be accessed by the current owner/holder
     */
 
-    /*
+
     let string = String::from("text"); // always on the heap, dynamically allocated
     let str: &str = "Text"; // pointer to embedded memory, non-mutable
-    */
 
-    /*
+
     let a = String::from("aaa");
     let b = &a;
     let c = &a;
     println!("{},{},{}", a , b , c); // is ok, the owner is one, for this we have 2 views read only
-    */
 
     let mut a = String::from("aaa");
     let b = &mut a;
@@ -118,7 +116,7 @@ fn memory_management() {
 
     // copy creation can be implicit implementation requires copy trait
     let test = Test { value: 4 };
-    mutate_test(test); // niejawny clone
+    mutate_test(test); // clone
     println!("{:?}", test);
 }
 
