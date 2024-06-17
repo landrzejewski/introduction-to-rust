@@ -1,4 +1,6 @@
 /*
+https://github.com/landrzejewski/introduction-to-rust
+
 Installation/environment setup
 - rustup tool from https://rustup.rs
 - Visual Code + Rust extension, alternatively RustRover
@@ -18,6 +20,7 @@ cargo fmt                              # format source files in the project
 
 #![allow(dead_code)] // crate scope attribute (entire application)
 mod language_basics;
+mod exercises;
 
 fn main() {
     println!("Hello World in Rust");

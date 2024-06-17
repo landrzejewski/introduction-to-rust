@@ -249,6 +249,7 @@ fn data_types() {
     let (a, b, c) = tuple; // tuple destructuring, number of elements must match
     let (_, b, c) = tuple; // selected elements can be ignored
     let unit = (); // empty tuple, unit
+    let other_tuple: (bool, i32);
 
     /*
     Array
@@ -258,8 +259,12 @@ fn data_types() {
     - memory allocation occurs on the stack
     */
 
-    let numbers: [i32; 6] = [1, 2, 3, 4, 5, 6];
+    let mut numbers: [i32; 6] = [1, 2, 3, 4, 5, 6];
+    numbers[0] = -1;
     let matrix = [[1, 2], [3, 4]];
+
+    let m = matrix;
+
 
     let numbers: [i32; 6] = [1, 2, 3, 4, 5, 6];
     println!("First number: {}", numbers[0]);
@@ -305,14 +310,11 @@ fn control_flow() {
 
     let dice_roll = 3;
     let _roll_result = match dice_roll {
-        6 => {
-            println!("You won!");
-            "Win"
-        }
+        6 => "Win",
         val @ 1 => {
             println!("You lost! {val}");
             "Loose"
-        }
+        },
         value => {
             // if you are not interested in the value you can use _
             println!("You hit {value}, try again");
@@ -340,7 +342,7 @@ fn control_flow() {
     match (sky, temperature) {
         ("cloudy", "cold") => println!("It's dark and unpleasant today"),
         ("clear", "warm") => println!("It's a nice day"),
-        ("cloudy", "warm") => println!("It's dark but not bad"),
+        ("cloudy", _) => println!("It's dark but not bad"),
         _ => println!("Not sure what the weather is."),
     }
 
@@ -371,6 +373,7 @@ fn control_flow() {
     while number != 0 {
         println!("{number}");
         number -= 1;
+        break;
     }
 
     // for in
@@ -393,10 +396,7 @@ fn control_flow() {
 fn functions() {
     println!("Addition result: {}", add(1, 2));
     println!("Validation result: {}", validate(10, is_even));
-    println!(
-        "Validation result: {}",
-        validate(10, |value| value % 2 == 0)
-    );
+    println!("Validation result: {}", validate(10, |value| value % 2 == 0));
 
     // block expression
     let _score = {
@@ -406,7 +406,7 @@ fn functions() {
 }
 
 fn add(value: i32, other_value: i32) -> i32 {
-    // value + other_value; // explicit return of the function result
+    // return value + other_value; // explicit return of the function result
     value + other_value // implicit return of the function result (no semicolon at the end)
 }
 
