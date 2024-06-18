@@ -102,7 +102,11 @@ fn memory_management() {
     let c = &a; // read/access is not possible because there is still a chance of mutation (line below)
     // b.push('c'); // error
 
-    // see other examples below for more
+    /*
+    Rust only allows 1 memory owner
+    Rust allows for multiple references (many immutable or one mutable)
+    see other examples below for more
+    */
 }
 
 fn show(text: String) {
@@ -175,11 +179,8 @@ fn restrictions_after_defining_immutable_reference() {
 #[allow(unused_assignments)]
 fn lifetimes() {
     /*
-       - lifetime does not change the lifetime of a reference, it describes the relationship between the lifetimes of multiple references guaranteeing security
-       - Rust only allows 1 memory owner
-       - Rust allows for multiple references (many immutable or one mutable)
-       - lifetimes ensure that each reference refers to a valid / existing memory.
-          In other words, it guarantees that the memory will not be cleared until it needs to be used/accessed
+       - lifetime specifier does not change the lifetime of a reference, it only describes the relationship between the lifetimes of multiple references guaranteeing security
+       - lifetime ensure that each reference refers to a valid / existing memory, in other words, it guarantees that the memory will not be cleared until it needs to be used/accessed
     */
 
     let x;
@@ -214,8 +215,6 @@ fn lifetimes() {
         last_name: &last_name,
         address,
     };*/
-
-    // constants have guessed lifetime static
 }
 
 /*
@@ -233,9 +232,9 @@ fn get_longer<'a>(text: &'a str, other_text: &'a str) -> &'a str {
     }
 }
 
-// Person instance cannot survive longer than the credentials it holds/stores
+// Person instance cannot survive longer than the properties it holds/stores
 struct Person<'a, T> {
-    first_name: &'a str,
+    first_name: &'a str, // implicit static
     last_name: &'static str, // static denotes the lifetime of the entire program
     address: T,
 }

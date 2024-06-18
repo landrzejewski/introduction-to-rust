@@ -208,6 +208,8 @@ fn data_types() {
         println!("  {}", character);
     }
 
+    let first_letter = other_str.chars().nth(0); // safe access
+
     let message = "Hello😎";
 
     // Create slices as a portion of string.
