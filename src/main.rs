@@ -35,5 +35,6 @@ fn main() {
     // exercises::tic_tac_toe::run();
     // exercises::budget::run();
     // exercises::echo::run();
-    exercises::cat::run();
+    // exercises::cat::run();
+    exercises::wc::run();
 }
