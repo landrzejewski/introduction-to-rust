@@ -32,7 +32,8 @@ fn main() {
 
     // language_basics::run();
     // memory_management::run();
-    collections_generics_traits::run();
+    // collections_generics_traits::run();
+    basic_io::run();
     // fib::run();
     // exercises::money_with_enums::run();
     // exercises::guess_game::run();

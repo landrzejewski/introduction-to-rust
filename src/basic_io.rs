@@ -14,7 +14,7 @@ pub fn run() {
 
     // reading the contents of the file to String
     if let Ok(content) = read_to_string("exercises/description.md") {
-        for line in content.lines().map(|line| line.to_uppercase()) {
+        for line in content.lines().into_iter().map(|line| line.to_uppercase()) {
             println!("{line}");
         }
     }

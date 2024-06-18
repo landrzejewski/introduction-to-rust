@@ -13,3 +13,6 @@
 * The game ends when all fields are occupied or one player occupies the winning sequence (column, row or diagonal)
 * The game interface should be based on the command line / terminal
 
+4. Write an application to record receipts/expenditures for the household budget. The application should record the amount,
+   type of operation and its description (given as command line arguments) and generate a report/table in terminal.
+   Report should contain all the operations and a summary/final balance. The application should save the data entered by the user in a plain text file

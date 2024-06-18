@@ -1,6 +1,7 @@
 use std::any::type_name;
 use std::collections::HashMap;
-use std::fmt::Display;
+use std::fmt::{Display, Formatter};
+use std::ops::{Add, Sub};
 
 pub fn run() {
     // collections();
@@ -76,6 +77,7 @@ fn generics_and_traits() {
 
     // point.show();
     other_point.show();
+
     println!("{}", point);
     other_point.print_info();
 
@@ -122,9 +124,8 @@ trait Show {
 }
 
 // impl<T: Display + Clone> Display for Point<T> {
-impl<T> Display for Point<T>
-where
-    T: Display + Clone,
+
+impl<T> Display for Point<T> where T: Display + Clone,
 {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         write!(f, "({}, {})", self.x, self.y)
