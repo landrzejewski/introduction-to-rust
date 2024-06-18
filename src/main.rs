@@ -29,9 +29,11 @@ fn main() {
     // memory_management::run();
     // collections_generics_traits::run();
     // basic_io::run();
-    exercises::budget::run();
     // fib::run();
     // exercises::money_with_enums::run();
     // exercises::guess_game::run();
     // exercises::tic_tac_toe::run();
+    // exercises::budget::run();
+    // exercises::echo::run();
+    exercises::cat::run();
 }
