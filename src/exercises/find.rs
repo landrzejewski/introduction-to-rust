@@ -1,6 +1,7 @@
-use crate::exercises::utils::{assert, get_arguments, is_not_empty, min_length};
 use regex::Regex;
 use walkdir::{DirEntry, WalkDir};
+
+use crate::exercises::utils::{assert, get_arguments, is_not_empty, min_length};
 
 const ELEMENT_TYPE_SEPARATOR: &str = ",";
 
@@ -37,14 +38,39 @@ fn is_type_of(entry: &DirEntry, element_type: &ElementType) -> bool {
     }
 }
 
-fn find(regex: &Regex, element_types: &Vec<ElementType>, paths: &Vec<String>) -> Vec<String> {
-    // WalkDir::new(path)
-    //     .into_iter()
+fn find(file_name_regex: &Regex, element_types: &Vec<ElementType>, paths: &Vec<String>) -> Vec<String> {
+    let element_type_filter = |entry: &DirEntry| {
+        element_types
+            .iter()
+            .any(|element_type| is_type_of(entry, element_type))
+    };
 
+    let name_filter = |entry: &DirEntry| {
+        let Some(file_name) = entry.file_name().to_str() else {
+            return false;
+        };
+        file_name_regex.is_match(file_name)
+    };
 
-    // regex.is_match(file_name);
+    let find_on_path = |path: &String| {
+        WalkDir::new(path)
+            .into_iter()
+            .filter_map(|result| result.ok())
+            .filter(element_type_filter)
+            .filter(name_filter)
+            .map(|entry| entry.path().display().to_string())
+    };
 
-    return vec![];
+    println!("Searching...");
+
+    let mut result = Vec::new();
+
+    paths.iter().fold(&mut result, |result, path| {
+        result.extend(find_on_path(path));
+        result
+    });
+
+    return result;
 }
 
 pub fn run() {

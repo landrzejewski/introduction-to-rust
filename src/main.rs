@@ -36,5 +36,6 @@ fn main() {
     // exercises::budget::run();
     // exercises::echo::run();
     // exercises::cat::run();
-    exercises::wc::run();
+    // exercises::wc::run();
+    exercises::find::run();
 }
