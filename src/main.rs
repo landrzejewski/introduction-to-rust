@@ -25,7 +25,7 @@ mod language_basics;
 mod memory_management;
 mod collections_generics_traits;
 mod exercises;
-
+mod basic_io;
 
 fn main() {
     // println!("Hello World in Rust");
