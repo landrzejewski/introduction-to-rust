@@ -1,13 +1,13 @@
 #[derive(Copy, Clone, Debug, PartialEq)]
 enum Currency {
     EUR,
-    PLN
+    PLN,
 }
 
 #[derive(Debug)]
 struct MonetaryAmount {
     value: f64,
-    currency: Currency
+    currency: Currency,
 }
 
 impl MonetaryAmount {

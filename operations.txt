@@ -1,0 +1,4 @@
+-60;rust_fundamentals::exercises::budget::OperationType;Dinner
+20;rust_fundamentals::exercises::budget::OperationType;test
+22;rust_fundamentals::exercises::budget::OperationType;aa
+20;rust_fundamentals::exercises::budget::OperationType;test

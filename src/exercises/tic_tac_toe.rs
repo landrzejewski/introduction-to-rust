@@ -93,7 +93,10 @@ pub fn run() {
 
     loop {
         board.display();
-        println!("Player {:?} enter move. Enter col(0-2) row(0-2)", current_player);
+        println!(
+            "Player {:?} enter move. Enter col(0-2) row(0-2)",
+            current_player
+        );
         let mut input = String::new();
         io::stdin()
             .read_line(&mut input)

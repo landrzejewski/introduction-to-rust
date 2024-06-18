@@ -4,7 +4,7 @@ fn fibonacci_recursive(n: i32) -> u64 {
     }
     match n {
         1 | 2 => 1,
-        _ => fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+        _ => fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2),
     }
 }
 
