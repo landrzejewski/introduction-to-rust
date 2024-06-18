@@ -23,6 +23,7 @@ cargo fmt                              # format source files in the project
 // crate scope attribute (entire application)
 mod language_basics;
 mod memory_management;
+mod collections_generics_traits;
 mod exercises;
 
 
@@ -31,8 +32,9 @@ fn main() {
 
     // language_basics::run();
     // memory_management::run();
+    collections_generics_traits::run();
     // fib::run();
     // exercises::money_with_enums::run();
     // exercises::guess_game::run();
-    exercises::tic_tac_toe::run();
+    // exercises::tic_tac_toe::run();
 }

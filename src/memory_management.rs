@@ -1,8 +1,8 @@
 use std::rc::Rc;
 
 pub fn run() {
-   memory_management();
-    // lifetimes();
+   //memory_management();
+     lifetimes();
     // pointers();
 }
 
@@ -200,10 +200,10 @@ fn lifetimes() {
     let s1 = String::from("abc");
     let result;
     {
-        // let s2 = String::from("def");
-        // result = get_longer(&s1, &s2);
-        let s2 = "def"; // str is alive/exists for the duration of the application
-        result = get_longer(s1.as_str(), s2);
+         //let s2 = String::from("def");
+         // result = get_longer(&s1, &s2);
+         let s2 = "def"; // str is alive/exists for the duration of the application
+         result = get_longer(s1.as_str(), s2);
     }
     println!("{}", result);
 
