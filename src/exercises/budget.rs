@@ -1,4 +1,3 @@
-use std::any::type_name;
 use std::env;
 use std::fmt::{Display, Formatter};
 use std::fs::{File, OpenOptions};
@@ -12,9 +11,18 @@ enum OperationType {
     WITHDRAW,
 }
 
+impl OperationType {
+    fn as_string(&self) -> &str {
+        match self {
+            OperationType::DEPOSIT => "DEPOSIT",
+            OperationType::WITHDRAW => "WITHDRAW"
+        }
+    }
+}
+
 impl Display for OperationType {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", type_name::<OperationType>())
+        write!(f, "{}", Self::as_string(self))
     }
 }
 
