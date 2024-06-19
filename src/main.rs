@@ -24,6 +24,7 @@ mod exercises;
 mod wrapper;
 mod integration;
 mod threads;
+mod async_functions;
 
 fn main() {
     // println!("Hello World in Rust");
@@ -33,7 +34,7 @@ fn main() {
     // collections_generics_traits::run();
     // basic_io::run();
     // integration::run();
-    threads::run();
+    // threads::run();
 
     // fib::run();
     // exercises::money_with_enums::run();
