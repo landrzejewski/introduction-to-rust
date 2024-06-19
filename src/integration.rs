@@ -9,8 +9,7 @@ fn you_can_call_me_from_c() {
     println!("Greetings from my Rust function.");
 }
 
-pub fn do_it() {
-
+pub fn run() {
     println!("\nIn demo_language_integration::do_it()");
 
     unsafe {
@@ -32,3 +31,5 @@ unsafe fn my_unsafe_function() -> i32 {
     // Could do something potentially dangerous in here...
     42
 }
+
+// https://pyo3.rs/main

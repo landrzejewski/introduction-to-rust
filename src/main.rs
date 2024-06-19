@@ -22,6 +22,8 @@ cargo fmt                              # format source files in the project
 // crate scope attribute (entire application)
 mod exercises;
 mod wrapper;
+mod integration;
+mod threads;
 
 fn main() {
     // println!("Hello World in Rust");
@@ -30,6 +32,9 @@ fn main() {
     // memory_management::run();
     // collections_generics_traits::run();
     // basic_io::run();
+    // integration::run();
+    threads::run();
+
     // fib::run();
     // exercises::money_with_enums::run();
     // exercises::guess_game::run();
@@ -40,4 +45,6 @@ fn main() {
     // exercises::wc::run();
     // exercises::find::run();
     // exercises::grep::run();
+
+
 }

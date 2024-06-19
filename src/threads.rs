@@ -4,6 +4,10 @@ use std::thread::JoinHandle;
 use std::time::Duration;
 
 pub fn run() {
+    threads();
+}
+
+fn channels() {
     let (tx, rx) = mpsc::channel();
     let txl = tx.clone();
     thread::spawn(move || {
