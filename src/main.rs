@@ -38,5 +38,5 @@ fn main() {
     // exercises::cat::run();
     // exercises::wc::run();
     // exercises::find::run();
-    exercises::grep::run();
+    // exercises::grep::run();
 }
