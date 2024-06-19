@@ -35,6 +35,7 @@ fn main() {
     // basic_io::run();
     // integration::run();
     // threads::run();
+    async_functions::run();
 
     // fib::run();
     // exercises::money_with_enums::run();
