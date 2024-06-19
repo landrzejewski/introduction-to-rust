@@ -208,7 +208,7 @@ fn lifetimes() {
     println!("{}", result);
 
     let last_name = String::from("Kowalski");
-    let address = String::from("test");
+    let address = String::from("tests");
 
     /*let client = Person {
         first_name: "Jan",

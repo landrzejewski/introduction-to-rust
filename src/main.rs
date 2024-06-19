@@ -21,6 +21,7 @@ cargo fmt                              # format source files in the project
 #![allow(dead_code)]
 // crate scope attribute (entire application)
 mod exercises;
+mod wrapper;
 
 fn main() {
     // println!("Hello World in Rust");

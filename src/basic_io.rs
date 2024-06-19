@@ -30,7 +30,7 @@ pub fn run() {
 
     // file creation
 
-    // let test_file = File::create("test.txt");
+    // let test_file = File::create("tests.txt");
 
     // writing to file
     let test_file = OpenOptions::new()
@@ -38,7 +38,7 @@ pub fn run() {
         .write(true)
         .create(true)
         .append(true)
-        .open("test.txt");
+        .open("tests.txt");
 
     if let Ok(mut output_file) = test_file {
         writeln!(output_file, "Test value").expect("panic message");
